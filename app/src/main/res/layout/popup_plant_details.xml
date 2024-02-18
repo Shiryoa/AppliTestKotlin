@@ -112,7 +112,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_trash"
-        android:layout_marginRight="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
         app:layout_constraintBottom_toBottomOf="@+id/view_separation"
         app:layout_constraintEnd_toStartOf="@+id/view_separation"
         app:layout_constraintTop_toTopOf="@+id/view_separation" />
@@ -121,7 +121,7 @@
         android:id="@+id/star_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="@dimen/default_margin"
+        android:layout_marginStart="@dimen/default_margin"
         android:src="@drawable/ic_unstar"
         app:layout_constraintStart_toEndOf="@+id/view_separation"
         app:layout_constraintTop_toTopOf="@+id/delete_button" />
