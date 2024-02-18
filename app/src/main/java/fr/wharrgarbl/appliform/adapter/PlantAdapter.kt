@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import fr.wharrgarbl.appliform.MainActivity
 import fr.wharrgarbl.appliform.PlantModel
+import fr.wharrgarbl.appliform.PlantPopup
+import fr.wharrgarbl.appliform.PlantRepository
 import fr.wharrgarbl.appliform.R
 
 class PlantAdapter(
-    private val context: MainActivity,
+    val context: MainActivity,
     private val plantList: List<PlantModel>,
     private val layoutId: Int)
     :RecyclerView.Adapter<PlantAdapter.ViewHolder>(){
@@ -23,7 +25,7 @@ class PlantAdapter(
         val plantImage = view.findViewById<ImageView>(R.id.image_item)
         val plantName:TextView? = view.findViewById(R.id.name_item)
         val plantDescription:TextView? = view.findViewById(R.id.descr_item)
-        val starIcon = view.findViewById<ImageView>(R.id.star_icon)
+        val starIcon: ImageView = view.findViewById(R.id.star_icon)
     }
 
     //permet d'injecter le layout
@@ -39,6 +41,8 @@ class PlantAdapter(
         //recup info de la plante
         val currentPlant = plantList[position]
 
+        val repo = PlantRepository()
+
         //use glide pour recup l'image
         Glide.with(context).load(Uri.parse(currentPlant.imageUrl)).into(holder.plantImage)
 
@@ -53,6 +57,15 @@ class PlantAdapter(
             holder.starIcon.setImageResource(R.drawable.ic_star)
         } else {
             holder.starIcon.setImageResource(R.drawable.ic_unstar)
+        }
+
+        holder.starIcon.setOnClickListener{
+            currentPlant.liked = !currentPlant.liked
+            repo.updatePlant(currentPlant)
+        }
+
+        holder.itemView.setOnClickListener{
+            PlantPopup(this,currentPlant).show()
         }
     }
 }

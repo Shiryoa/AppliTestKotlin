@@ -9,15 +9,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val repo = PlantRepository()
+
+        repo.updateData{
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container,HomeFragment(this))
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
 
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container,HomeFragment(this))
-        transaction.addToBackStack(null)
-        transaction.commit()
-
     }
+
+
 }
 

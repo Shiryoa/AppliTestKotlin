@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "753729812382",
+    "firebase_url": "https://narujaetdecouvrang-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "narujaetdecouvrang",
+    "storage_bucket": "narujaetdecouvrang.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753729812382:android:52aa41b4c2b3e13fbd488f",
+        "android_client_info": {
+          "package_name": "fr.wharrgarbl.appliform"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNBsSBSk8xwOsiGgxs6Ez2LI6HP6mKcj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
